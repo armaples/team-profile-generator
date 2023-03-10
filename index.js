@@ -104,7 +104,35 @@ function generateTeam() {
     // Add engineer
 
     function addEngineer() {
+        inquirer
+            .prompt([
+                {
+                    type: "input",
+                    name: "engineerName",
+                    message: "What is the Engineer's full name?"
+                },
+                {
+                    type: "input",
+                    name: "engineerId",
+                    message: "What is the Engineer's employee ID?"
+                },
+                {
+                    type: "input",
+                    name: "engineerEmail",
+                    message: "What is the Engineer's email?"
+                },
+                {
+                    type: "input",
+                    name: "engineerGithub",
+                    message: "What is the engineer's Github username?"
+                }
+            ])
+            .then(data => {
+                const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
 
+                teamMembers.push(engineer);
+                addTeamMembers();
+            })
     }
 
     // Add intern
