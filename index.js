@@ -138,7 +138,35 @@ function generateTeam() {
     // Add intern
 
     function addIntern() {
+        inquirer
+            .prompt([
+                {
+                    type: "input",
+                    name: "internName",
+                    message: "What is the Intern's full name?"
+                },
+                {
+                    type: "input",
+                    name: "internId",
+                    message: "What is the Intern's employee ID?"
+                },
+                {
+                    type: "input",
+                    name: "internEmail",
+                    message: "What is the Intern's email?"
+                },
+                {
+                    type: "input",
+                    name: "internSchool",
+                    message: "What is the Intern's school?"
+                }
+            ])
+            .then(data => {
+                const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
 
+                teamMembers.push(intern);
+                addTeamMembers();
+            })
     }
 
     // Generates HTML file
