@@ -1,11 +1,11 @@
 const Employee = require('../lib/Employee');
 
-
 describe('Employee class', () => {
     it('Should create new employee and give name, id, and email', () => {
         const testingEmployeeName = "Alyssa";
         const testingEmployeeId = 22;
         const testingEmployeeEmail = "alyssa@email.com"
+        
         const employee = new Employee(testingEmployeeName, testingEmployeeId, testingEmployeeEmail);
 
         expect(employee.name).toBe(testingEmployeeName);
