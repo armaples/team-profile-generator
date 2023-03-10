@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
-const Employee = require("./Employee");
-const Engineer = require("./Engineer");
-const Intern = require("./Intern");
-const Manager = require("./Manager");
+const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 const fs = require('fs');
 
 teamMembers = [];
@@ -173,7 +173,7 @@ function generateTeam() {
     // Generates HTML file
 
     function generateHtml() {
-        fs.writeFileSync(`../dist/teamProfiles.html`, `
+        fs.writeFileSync(`./dist/teamProfiles.html`, `
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -194,59 +194,59 @@ function generateTeam() {
                 </div>
             </header>
   
-            <main>
+            <div class="d-flex justify-content-center flex-wrap">
             ${this.teamMembers.map((member) => {
                 if (member.getRole() === "Manager") {
                     return `
-                    <div class="card m-5" style="width: 18rem;">
+                    <div class="card m-2 p-2 align-self-stretch" style="width: 18rem;">
                     <div class="card-body">
-                    <h5 class="card-title" style="color: #50B2C0">${member.name}</h5>
-                    <p class="card-text">Role: Manager
-                    Employee ID: ${member.id}
+                    <h5 class="card-title" style="color: #50B2C0; font-family:Source Code Pro;">${member.name}</h5>
+                    <p class="card-text" style="font-family:Golos Text">Role: Manager </br>
+                    Employee ID: ${member.id} </br>
                     Office Number: ${member.officeNumber}</p>
-                    <a href="mailto:${member.email}" class="btn" style="background-color:#50B2C0; color:white;">Email</a>
+                    <a href="mailto:${member.email}" class="btn" style="background-color:#50B2C0; color:white; font-family:Golos Text;">Email</a>
                     </div>
                     </div>
                     `
                 } else if (member.getRole() === "Employee") {
                     return `
-                    <div class="card m-5" style="width: 18rem;">
+                    <div class="card m-2 p-2 align-self-stretch" style="width: 18rem;">
                     <div class="card-body">
-                    <h5 class="card-title" style="color: #50B2C0">${member.name}</h5>
-                    <p class="card-text">Role: Employee
+                    <h5 class="card-title" style="color: #50B2C0; font-family:Source Code Pro;">${member.name}</h5>
+                    <p class="card-text" style="font-family:Golos Text">Role: Employee </br>
                     Employee ID: ${member.id}</p>
-                    <a href="mailto:${member.email}" class="btn" style="background-color:#50B2C0; color:white;">Email</a>
+                    <a href="mailto:${member.email}" class="btn" style="background-color:#50B2C0; color:white; font-family:Golos Text;">Email</a>
                     </div>
                     </div>
                     `
                 } else if (member.getRole() === "Engineer") {
                     return `
-                    <div class="card m-5" style="width: 18rem;">
+                    <div class="card m-2 p-2 align-self-stretch" style="width: 18rem;">
                     <div class="card-body">
-                    <h5 class="card-title" style="color: #50B2C0">${member.name}</h5>
-                    <p class="card-text">Role: Engineer
+                    <h5 class="card-title" style="color: #50B2C0; font-family:Source Code Pro;">${member.name}</h5>
+                    <p class="card-text" style="font-family:Golos Text">Role: Engineer </br>
                     Employee ID: ${member.id}</p>
                     <a href="mailto:${member.email}" class="btn" style="background-color:#50B2C0; color:white;">Email</a>
-                    <a href="mailto:${member.github}" class="btn" style="background-color:#50B2C0; color:white;">GitHub</a>
+                    <a href="mailto:${member.github}" class="btn" style="background-color:#50B2C0; color:white; font-family:Golos Text;">GitHub</a>
                     </div>
                     </div>
                     `
                 } else if (member.getRole() === "Intern") {
                     return `
-                    <div class="card m-5" style="width: 18rem;">
+                    <div class="card m-2 p-2 align-self-stretch" style="width: 18rem;">
                     <div class="card-body">
-                    <h5 class="card-title" style="color: #50B2C0">${member.name}</h5>
-                    <p class="card-text">Role: Intern
-                    Employee ID: ${member.id}
+                    <h5 class="card-title" style="color: #50B2C0; font-family:Source Code Pro;">${member.name}</h5>
+                    <p class="card-text" style="font-family:Golos Text">Role: Intern </br>
+                    Employee ID: ${member.id} </br>
                     School: ${member.school}</p>
-                    <a href="mailto:${member.email}" class="btn" style="background-color:#50B2C0; color:white;">Email</a>
+                    <a href="mailto:${member.email}" class="btn" style="background-color:#50B2C0; color:white; font-family:Golos Text;">Email</a>
                     </div>
                     </div>
                     `
                 }
             })}
                 
-            </main>
+            </div>
         </body>
         </html>`, (err) => 
             err ? console.log(err) : console.log("Team Profiles Generated!"))
@@ -257,6 +257,8 @@ function generateTeam() {
     function exitApp() {
 
     }
+
+    addManager();
 }
 
 generateTeam();
