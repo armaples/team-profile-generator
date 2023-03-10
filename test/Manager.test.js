@@ -15,6 +15,12 @@ describe('Manager class', () => {
         expect(manager.officeNumber).toBe(testingOfficeNumber);
     });
 
+    it('getOfficeNumber() should return Manager office number', () => {
+        const manager = new Manager("Adam", 2, "adam@email.com", 3300);
+
+        expect(manager.getOfficeNumber().toBe(3300));
+    });
+
     it('getRole() should return Manager', () => {
         const manager = new Manager("Adam", 2, "adam@email.com", 3300);
 
