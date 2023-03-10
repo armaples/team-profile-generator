@@ -1,5 +1,6 @@
 const Employee = require('../lib/Employee');
 
+
 describe('Employee class', () => {
     it('Should create new employee and give name, id, and email', () => {
         const testingEmployeeName = "Alyssa";
@@ -31,7 +32,7 @@ describe('Employee class', () => {
     });
 
     it('getRole() should return Employee', () => {
-        const employee = new Employee();
+        const employee = new Employee("Alyssa", 22, "alyssa@email.com");
 
         expect(employee.getRole()).toBe("Employee");
     });
