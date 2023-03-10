@@ -54,17 +54,76 @@ function generateTeam() {
                     choices: ["Add an Employee", "Add an Engineer", "Add an Intern", "Generate Team Profiles"]
                 }
             ])
+            .then(data => {
+                switch(data.menu) {
+                    case "Add an Employee":
+                        addEmployee();
+                        break;
+                    case "Add an Engineer":
+                        addEngineer();
+                        break;
+                    case "Add an Intern":
+                        addIntern();
+                        break;
+                    case "Generate Team Profiles":
+                        generateHtml();
+                        break;
+                }
+            })
     }
 
     // Add employee
 
+    function addEmployee() {
+        inquirer
+            .prompt([
+                {
+                    type: "input",
+                    name: "employeeName",
+                    message: "What is the Employee's full name?"
+                },
+                {
+                    type: "input",
+                    name: "employeeId",
+                    message: "What is the Employee's employee ID?"
+                },
+                {
+                    type: "input",
+                    name: "employeeEmail",
+                    message: "What is the Employee's email?"
+                }
+            ])
+            .then(data => {
+                const employee = new Employee(data.employeeName, data.employeeId, data.employeeEmail);
+
+                teamMembers.push(employee);
+                addTeamMembers();
+            })
+    }
+
     // Add engineer
+
+    function addEngineer() {
+
+    }
 
     // Add intern
 
+    function addIntern() {
+
+    }
+
     // Generates HTML file
 
+    function generateHtml() {
+
+    }
+
     // Exits the node app
+
+    function exitApp() {
+
+    }
 }
 
 generateTeam();
