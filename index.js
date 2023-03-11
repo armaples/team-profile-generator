@@ -227,7 +227,7 @@ function generateTeam() {
                     <p class="card-text" style="font-family:Golos Text">Role: Engineer </br>
                     Employee ID: ${member.id}</p>
                     <a href="mailto:${member.email}" class="btn" style="background-color:#50B2C0; color:white;">Email</a>
-                    <a href="mailto:${member.github}" class="btn" style="background-color:#50B2C0; color:white; font-family:Golos Text;">GitHub</a>
+                    <a href="https://github.com/${member.github}" class="btn" style="background-color:#50B2C0; color:white; font-family:Golos Text;">GitHub</a>
                     </div>
                     </div>
                     `
